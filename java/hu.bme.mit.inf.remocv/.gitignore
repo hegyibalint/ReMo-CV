@@ -1,5 +1,6 @@
-# Compiled class files and folders
+# Compiled class files and folders + xtend gen folders
 bin/
+src/main/xtend-gen/
 *.class
 
 # Log file
