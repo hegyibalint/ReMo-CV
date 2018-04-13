@@ -1,0 +1,102 @@
+\documentclass[a4paper]{article}
+
+\usepackage[
+  margin=10mm,
+  footskip=5mm,
+]{geometry}
+
+\usepackage[magyar]{babel}
+\usepackage{fontspec}
+\usepackage{lmodern}
+
+\usepackage[table]{xcolor}
+
+\usepackage{framed}
+\usepackage{bigstrut}
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{pst-barcode}
+
+\usepackage{xfrac}
+\usepackage{bm}
+
+\pagestyle{empty}
+
+\usepackage{inc/checkbox}
+
+%\usepackage{showframe}
+
+\begin{document}
+\frenchspacing
+
+\vspace*{\fill}
+\begin{center}
+\fontsize{2cm}{2.5cm}\selectfont
+1. PZH\\
+E1A\\
+24 lap\\
+\told1000+tol{} 
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+\large
+
+\noindent
+\begin{center}
+    \begin{tabu} to \textwidth {r X l@{\hskip 5mm} l }
+    	\multicolumn{2}{c}{\hspace{2.5cm}\LARGE\bfseries Rendszermodellezés -- 1. PZH} & Feladat & \multicolumn{1}{c}{Pontszám} \\[1mm]
+    	\toprule
+        \hspace{1cm}\textbf{Kód:}    & \textbf{123} &        &\bigstrut                        \\
+    	\hspace{1cm}\textbf{Név:}    &              & Beugró & \hspace{1cm}\textbf{/10}\bigstrut \\
+    	\hspace{1cm}\textbf{Neptun:} &              &        &\bigstrut                        \\
+    	\bottomrule
+    \end{tabu}
+\end{center}
+
+\begin{center}
+	\textbf{A DOLGOZATOT TOLLAL ÍRJA!}\\[4mm]
+    \newcolumntype{?}{!{\vrule width 2pt}}
+    \rowcolors{1}{white}{gray!20}
+    \begin{tabu} to \textwidth { ? c | X[c] X[c] | X[c] X[c] | X[c] X[c] | X[c] X[c] ? }
+        \specialrule{2pt}{0mm}{0mm}
+        \multicolumn{1}{?c|}{} & \multicolumn{2}{c|}{\bf A} & \multicolumn{2}{c|}{\bf B} & \multicolumn{2}{c|}{\bf C} & \multicolumn{2}{c?}{\bf D} \bigstrut[t] \\
+        \specialrule{\lightrulewidth}{0mm}{0mm}
+        \textbf{1} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \textbf{2} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \textbf{3} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \textbf{4} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \textbf{5} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \textbf{6} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \textbf{7} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \textbf{8} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \textbf{9} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \textbf{10} & \answerbox{} & \answerbox{} & \answerbox{} & \answerbox{}\bigstrut \\
+        \specialrule{2pt}{0mm}{0mm}
+    \end{tabu}
+\end{center}
+
+\setlength{\parskip}{0.5em}
+
+Minden kérdés (pl. \emph{2. C}) esetén a helyes válasz $\sfrac{1}{4}$ pontot ér, míg az üresen hagyott rubrika $0$ pontot, a hibás válasz $\sfrac{1}{4}$ pontot levonást ér. A pontozási rendszer révén a véletlenszerű tippelés \emph{nem} kifizetődő.
+
+\noindent\textbf{$\bm{10}$ pontból $\bm{5}$ pont} megszerzése szükséges a beugrókérdésekből; ennél alacsonyabb pontszám esetén a zárthelyi a nagyfeladatok eredményétől függetlenül elégtelen.
+
+\noindent\textbf{Egyértelműen jelölje} (satírozás vagy egymást keresztező vonalak), hogy az adott válaszlehetőség \emph{igaz}~(I) vagy \emph{hamis}~(H); bizonytalanság esetén a rubrika \emph{üresen hagyható}.
+
+\noindent\textbf{Automatikusan dolgozzuk fel} a feladatlapokat, így nyomatékosan kérjük, a nem megválaszolt rubrikákba semmilyen jelölést ne tegyen! A lapon csak az egyes kérdésekre adott válaszokat, továbbá nevét és Neptun-kódját jelölje!
+
+\noindent\textbf{Tévesztés esetén} mindkét válaszlehetőség bejelölésével a válasz törölhető.
+
+\noindent\textbf{Javítást nem fogadunk el}, ezért javasoljuk a válaszokat csak erős átgondolás után átvezetni a táblázatba.
+
+\vfill
+\noindent
+\begin{pspicture}(5mm, 0cm)
+    \psbarcode{2016-09-11;E1A;A;12}{height=0.196850394 width=7.48031496}{code128}
+\end{pspicture}
+
+\clearpage
+
+\end{document}

@@ -1,0 +1,18 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{checkbox}
+
+\RequirePackage{tikz}
+\RequirePackage{soulpos}
+
+\newcommand{\checkbox}[1]{{%
+	\makebox[1cm]{
+		\centering
+		#1\hspace{1mm}
+		\tikz[baseline=-.125cm]{
+			\draw[fill=white](0,0) circle(0.3cm)
+		}
+	}
+}}
+\newcommand{\answerbox}[1][]{\checkbox{\hphantom{H}\llap{I}} & \checkbox{#1H}}
+
+\endinput
