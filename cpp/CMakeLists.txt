@@ -4,6 +4,8 @@ project(ReMoCV)
 find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR} ${CMAKE_MODULE_PATH})
+
 find_package (ZBar)
 include_directories( ${ZBAR_INCLUDE_DIR} )
 

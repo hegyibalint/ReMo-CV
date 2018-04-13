@@ -20,7 +20,7 @@ void onTrackbarChange(int pos, void* userdata) {
     double vspacing = cv::getTrackbarPos("VSPACING", "ADJUST") / 10000.0;
 
     for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
+        for (int j = 0; j < 10; j++) {
             int x = static_cast<int>(copy.cols * (hoffset + i * hspacing));
             int y = static_cast<int>(copy.rows * (voffset + j * vspacing));
             cv::Point p(x, y);

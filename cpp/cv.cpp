@@ -1,11 +1,14 @@
 #include "cv.hpp"
 
 std::string remo::read_barcode(cv::Mat img) {
+    cv::Mat roi;
+    roi = img(cv::Rect(100, 100, img.cols - 200, img.rows - 200));
+
     cv::Mat gray;
-    cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
+    cv::cvtColor(roi, gray, cv::COLOR_BGR2GRAY);
 
     cv::Mat thresholded;
-    cv::threshold(gray, thresholded, 128, 255, cv::THRESH_BINARY);
+    cv::threshold(gray, thresholded, 120, 255, cv::THRESH_BINARY);
 
     zbar::ImageScanner scanner;
     scanner.set_config(zbar::ZBAR_NONE, zbar::ZBAR_CFG_ENABLE, 0);
@@ -22,10 +25,8 @@ std::string remo::read_barcode(cv::Mat img) {
 
     auto symbolSet = scanner.get_results();
     if (symbolSet.get_size() != 1) {
-        DEBUGX_MAT(thresholded);
         std::stringstream ss;
         ss << "The number of barcodes are not correct (" << symbolSet.get_size() << ")";
-        throw std::runtime_error(ss.str());
     }
 
     return symbolSet.symbol_begin()->get_data();
@@ -101,10 +102,10 @@ remo::Test remo::extract_test(cv::Mat img) {
         }
 
         if (angle > 2.0
-            || area < 0.19
-            || area > 0.21
-            || aspect < 2.7
-            || aspect > 2.8) {
+            || area < 0.23
+            || area > 0.25
+            || aspect < 2.15
+            || aspect > 2.35) {
             continue;
         }
 
@@ -122,9 +123,9 @@ remo::Test remo::extract_test(cv::Mat img) {
         cv::line(rect_debug, points[3], points[0], cv::Scalar(255, 0, 0), 3);
         DEBUG_MAT(rect_debug);
 
-        std::cout << "Area:     " << fabs(rect.size.area() / pageArea) << std::endl;
-        std::cout << "Aspect:   " << fabs(rect.size.width / rect.size.height) << std::endl;
-        std::cout << "Rotation: " << fabs(rect.angle) << std::endl;
+        std::cout << "Area:     " << area << std::endl;
+        std::cout << "Aspect:   " << aspect << std::endl;
+        std::cout << "Rotation: " << angle << std::endl;
         std::cout << "----------------" << std::endl;
 #endif
 
@@ -143,7 +144,10 @@ remo::Test remo::extract_test(cv::Mat img) {
         cv::getRectSubPix(warped, size, rect.center, test);
         DEBUG_MAT(test);
 
-        return {read_barcode(img), test};
+        std::string barcode = ";;;";
+        barcode = read_barcode(warped);
+
+        return {barcode, test};
     }
 
     throw std::runtime_error("Cannot find test in the page");

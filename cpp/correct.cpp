@@ -45,7 +45,7 @@ std::vector<TestAnswer> check_answers(cv::Mat test, Calibration calib) {
     const int diam = cvRound(test.cols * calib.radius) - 1;
 
     std::vector<TestAnswer> answers;
-    for (int y = 0; y < 8 ; ++y) {
+    for (int y = 0; y < 10 ; ++y) {
         for (int x = 0; x < 8; x+=2) {
             bool true_box = get_answer(thresholded, diam, cv::Point2i(
                     cvRound(test.cols * calib.hoffset + x * test.cols * calib.hspacing),
